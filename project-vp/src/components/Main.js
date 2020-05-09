@@ -11,7 +11,7 @@ class Main extends React.Component {
                visible: 9,
                loadingState: false,
                like: [],
-               sttlike: false
+               sttlike: []
           }
      }
 
@@ -19,8 +19,14 @@ class Main extends React.Component {
 
           loadData().then((res) => {
                this.props.run(res.data)
+               var arrLike = []
+               var arrsttlike = []
+               for (var i = 0; i < this.props.data.length; i++) {
+                    arrLike[i] = 10
+                    arrsttlike[i] = false
+               }
+               this.setState({ like: arrLike, sttlike: arrsttlike })
           })
-          console.log(this.props.like);
 
      }
 
@@ -35,56 +41,63 @@ class Main extends React.Component {
                     return val.title
                }
           })
-          return items
-     }
-
-     mapId = () => {
-          var items = this.props.data.map((val, ind) => {
-
-               return val.id
-
-          })
-          return items
-     }
-
-
-     displayItems = () => {
-
-
-          var dataTitle = this.mapData()
-          var dataId = this.mapId()
-          console.log(dataId);
-
-          var items = []
-          var j = 0
-          for (var i = 0; i < this.state.visible; i++) {
-               items.push(<div className="col-lg-4 col-md-6" key={i} >
+          var x = items.map((val, ind) => {
+               return <div className="col-lg-4 col-md-6" key={ind} >
                     <div className="card h-100">
                          <div className="single-post post-style-1">
                               <div className="blog-image"><img src="/images/marion-michele-330691.jpg" alt="Blog Image" /></div>
                               <a className="avatar" href="123"><img src="/images/icons8-team-355979.jpg" alt="Profile Image" /></a>
                               <div className="blog-info">
-                                   <h4 className="title"><a href="123"><b>{dataTitle[i]}</b></a></h4>
+                                   <h4 className="title"><a href="123"><b>{val}</b></a></h4>
                                    <ul className="post-footer">
-                                        <li><a href="123" onClick={(e) => this.increaseLike(e)} id={"#" + dataId[i]}>{this.props.like}</a></li>
+                                        <li>{(this.state.sttlike[ind] === false) ? <a href="123" onClick={(e) => this.increaseLike(e, ind)} ><i className="ion-heart" />{this.state.like[ind]}</a>:
+                                             <a href="123" onClick={(e) => this.reduceLike(e, ind)} ><i className="ion-heart" />{this.state.like[ind]}</a>}</li>
                                         <li><a href="123"><i className="ion-chatbubble" />6</a></li>
                                         <li><a href="123"><i className="ion-eye" />138</a></li>
                                    </ul>
                               </div>
                          </div>
                     </div>
-               </div>)
+               </div>
+          })
+          return x
+     }
 
+ 
+
+     displayItems = () => {
+
+          var dataTitle = this.mapData()
+          var items = []
+
+          for (var i = 0; i < this.state.visible; i++) {
+               items.push(dataTitle[i])
           }
           return items
      }
 
      increaseLike = (e, x) => {
           e.preventDefault()
-          this.props.increase()
-         
-
+          if (this.state.sttlike[x] === false) {
+               this.state.like[x] = this.state.like[x] + 1
+               this.state.sttlike[x] = true
+               this.setState({ like: this.state.like })
+               this.setState({ sttlike: this.state.sttlike })
+               alert(this.state.like[x])
+          }
      }
+
+     reduceLike = (e, x) => {
+          e.preventDefault()
+          if (this.state.sttlike[x] === true) {
+               this.state.like[x] = this.state.like[x] - 1
+               this.state.sttlike[x] = false
+               this.setState({ like: this.state.like })
+               this.setState({ sttlike: this.state.sttlike })
+               alert(this.state.like[x])
+          }
+     }
+
      loadMore = () => {
           var x
           if (this.props.data.length - this.state.visible >= 9) {
@@ -98,7 +111,7 @@ class Main extends React.Component {
                this.setState({ loadingState: true });
                setTimeout(() => {
                     this.setState({ visible: this.state.visible + x, loadingState: false })
-               }, 1000)
+               }, 0)
 
           }
      }
@@ -132,7 +145,6 @@ const mapDispatchToProps = (dispatch) => {
           }),
           increase: () => dispatch({
                type: "INCREASE-LIKE"
-
           })
      }
 }
