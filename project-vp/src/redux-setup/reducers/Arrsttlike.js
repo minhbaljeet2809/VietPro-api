@@ -1,18 +1,18 @@
-var arrLike = []
+var arrsttlike = []
 //var arrsttlike = []
 
 for (var i = 0; i < 100; i++) {
-     arrLike[i] = 10
-     //arrsttlike[i] = false
+     //arrLike[i] = 10
+     arrsttlike[i] = false
      //view[i] = 2
 }
 
 
-const Like = (state = arrLike, action) => {
+const Arrsttlike = (state = arrsttlike, action) => {
      switch (action.type) {
-          case "INCREASE-LIKE":
+          case "LIKE":
                return [...state,action.payload]
-          case "REDUCE-LIKE":
+          case "NOT-LIKE":
                return [...state,action.payload]
           default:
                return state
@@ -20,4 +20,4 @@ const Like = (state = arrLike, action) => {
      }
 }
 
-export default Like
+export default Arrsttlike
