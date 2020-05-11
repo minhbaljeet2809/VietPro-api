@@ -56,10 +56,10 @@ class Main extends React.Component {
                               <div className="blog-info">
                                    <h4 className="title" onClick={(e)=>this.increaseView(e,ind)}><NavLink to="/detail"><b>{val}</b></NavLink></h4>
                                    <ul className="post-footer">
-                                        <li>{(this.state.sttlike[ind] === false) ? <a href="123" onClick={(e) => this.increaseLike(e, ind)} ><i className="ion-heart" />{this.state.like[ind]}</a> :
-                                             <a href="123" onClick={(e) => this.reduceLike(e, ind)} ><i className="ion-heart" />{this.state.like[ind]}</a>}</li>
+                                        <li>{(this.state.sttlike[ind] === false) ? <a href="123" onClick={(e) => this.increaseLike(e, ind)} ><i className="far fa-heart" />{this.state.like[ind]}</a>:
+                                             <a href="123" onClick={(e) => this.reduceLike(e, ind)} ><i className="fas fa-heart" />{this.state.like[ind]}</a>}</li>
                                         <li><a href="123"><i className="ion-chatbubble" />6</a></li>
-                                        <li><i className="ion-eye" />{this.state.arrview[ind]}</li>
+                                        <li><a href="123"><i className="ion-eye" />{this.state.arrview[ind]}</a></li>
                                    </ul>
                               </div>
                          </div>
@@ -96,7 +96,7 @@ class Main extends React.Component {
                this.state.sttlike[x] = true
                this.setState({ like: this.state.like })
                this.setState({ sttlike: this.state.sttlike })
-               //alert(this.state.like[x])
+               // alert(this.state.like[x])
           }
      }
 
@@ -107,7 +107,7 @@ class Main extends React.Component {
                this.state.sttlike[x] = false
                this.setState({ like: this.state.like })
                this.setState({ sttlike: this.state.sttlike })
-               //alert(this.state.like[x])
+               // alert(this.state.like[x])
           }
      }
 
