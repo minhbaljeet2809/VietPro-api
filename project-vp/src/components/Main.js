@@ -41,17 +41,18 @@ class Main extends React.Component {
 
      }
      mapData = () => {
-          var items = this.props.data.map((val, ind) => {
+          var items = this.props.data.map((val) => {
                if (val.title.length > 0) {
                     return val.title
                }
+               return 0
           })
           var x = items.map((val, ind) => {
                return <div className="col-lg-4 col-md-6" key={ind} >
                     <div className="card h-100">
                          <div className="single-post post-style-1">
-                              <div className="blog-image"><img src="/images/marion-michele-330691.jpg" alt="Blog Image" /></div>
-                              <a className="avatar" href="123"><img src="/images/icons8-team-355979.jpg" alt="Profile Image" /></a>
+                              <div className="blog-image"><img src="/images/marion-michele-330691.jpg" alt="Blog" /></div>
+                              <a className="avatar" href="123"><img src="/images/icons8-team-355979.jpg" alt="Profile" /></a>
                               <div className="blog-info">
                                    <h4 className="title" onClick={(e)=>this.increaseView(e,ind)}><NavLink to="/detail"><b>{val}</b></NavLink></h4>
                                    <ul className="post-footer">
@@ -83,6 +84,7 @@ class Main extends React.Component {
 
      increaseView = (e, x)=>{
           e.preventDefault()
+          // this.setState({arrview[x] : this.state.arrview[x] + 1})
           this.state.arrview[x] = this.state.arrview[x] + 1
           this.setState({arrview: this.state.arrview})
      }

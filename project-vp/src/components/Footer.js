@@ -8,15 +8,15 @@ export default class Footer extends Component {
                          <div className="row">
                               <div className="col-lg-4 col-md-6">
                                    <div className="footer-section">
-                                        <a className="logo" href="#"><img src="images/logo.png" alt="Logo Image" /></a>
+                                        <a className="logo" href="google.com"><img src="images/logo.png" alt="Logo" /></a>
                                         <p className="copyright">Bona @ 2017. All rights reserved.</p>
-                                        <p className="copyright">Designed by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>
+                                        <p className="copyright">Designed by <a href="https://colorlib.com" >Colorlib</a></p>
                                         <ul className="icons">
-                                             <li><a href="#"><i className="ion-social-facebook-outline" /></a></li>
-                                             <li><a href="#"><i className="ion-social-twitter-outline" /></a></li>
-                                             <li><a href="#"><i className="ion-social-instagram-outline" /></a></li>
-                                             <li><a href="#"><i className="ion-social-vimeo-outline" /></a></li>
-                                             <li><a href="#"><i className="ion-social-pinterest-outline" /></a></li>
+                                             <li><a href="facebook.com"><i className="ion-social-facebook-outline" /></a></li>
+                                             <li><a href="facebook.com"><i className="ion-social-twitter-outline" /></a></li>
+                                             <li><a href="facebook.com"><i className="ion-social-instagram-outline" /></a></li>
+                                             <li><a href="facebook.com"><i className="ion-social-vimeo-outline" /></a></li>
+                                             <li><a href="facebook.com"><i className="ion-social-pinterest-outline" /></a></li>
                                         </ul>
                                    </div>
                               </div>
@@ -24,14 +24,14 @@ export default class Footer extends Component {
                                    <div className="footer-section">
                                         <h4 className="title"><b>CATAGORIES</b></h4>
                                         <ul>
-                                             <li><a href="#">BEAUTY</a></li>
-                                             <li><a href="#">HEALTH</a></li>
-                                             <li><a href="#">MUSIC</a></li>
+                                             <li><a href="google.com">BEAUTY</a></li>
+                                             <li><a href="google.com">HEALTH</a></li>
+                                             <li><a href="google.com">MUSIC</a></li>
                                         </ul>
                                         <ul>
-                                             <li><a href="#">SPORT</a></li>
-                                             <li><a href="#">DESIGN</a></li>
-                                             <li><a href="#">TRAVEL</a></li>
+                                             <li><a href="google.com">SPORT</a></li>
+                                             <li><a href="google.com">DESIGN</a></li>
+                                             <li><a href="google.com">TRAVEL</a></li>
                                         </ul>
                                    </div>
                               </div>
