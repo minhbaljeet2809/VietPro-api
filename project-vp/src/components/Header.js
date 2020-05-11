@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 export default class Header extends Component {
      render() {
           return (
+               <>
                     <header>
                          <div className="container-fluid position-relative no-side-padding">
                               <a href="#" className="logo"><img src="images/logo.png" alt="Logo Image" /></a>
@@ -20,6 +21,8 @@ export default class Header extends Component {
                               </div>
                          </div>
                     </header>
+                    <div className="slider"></div>
+               </>
           )
      }
 }
